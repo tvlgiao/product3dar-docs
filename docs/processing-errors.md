@@ -22,7 +22,7 @@ in [Which failed runs count](#allowance).
   <li><a href="#before-upload">Messages before the upload</a></li>
   <li><a href="#errors">Errors</a></li>
   <li><a href="#warnings">Warnings</a></li>
-  <li><a href="#android-ar-unsupported-extensions">Android AR: unsupported material extensions</a></li>
+  <li><a href="#android-ar-unsupported-extensions">Android AR uses simplified materials</a></li>
   <li><a href="#limits">Limits and "not processed"</a></li>
   <li><a href="#allowance">Which failed runs count</a></li>
   <li><a href="#contact-support">When to contact support</a></li>
@@ -49,6 +49,7 @@ in [Which failed runs count](#allowance).
 | [`MORPH_STRIPPED`](#morph-stripped) | Shape keys removed | Warning |
 | [`WEB_OVER_TARGET`](#web-over-target) | Web model is larger than recommended | Warning |
 | [`SCENE_VIEWER_UNAVAILABLE`](#scene-viewer-unavailable) | Android AR is not available | Warning |
+| [`ANDROID_AR_UNSUPPORTED_EXTENSIONS`](#android-ar-unsupported-extensions) | Android AR uses simplified materials | Warning |
 | [`AR_OVER_BUDGET`](#ar-over-budget) | AR file is too large | Warning |
 | [`USDZ_FAILED`](#usdz-failed) | iOS AR file could not be created | Warning |
 | [`QUICK_LOOK_UNAVAILABLE`](#quick-look-unavailable) | iOS AR is not available | Warning |
@@ -370,77 +371,64 @@ website viewer and iPhone & iPad AR are not affected. On Android, shoppers still
 
 **Why it happens.** One of these (the technical detail says which):
 
-- the model uses **material extensions Android AR doesn't support**: the detail reads "unsupported extensions: …"
-  (see [the next section](#android-ar-unsupported-extensions));
+- the model uses an **extension Android AR can't show that isn't a material effect** (for example GPU instancing,
+  or spec-gloss materials): the detail reads "unsupported extensions: …";
 - a material uses a **second UV map**: the detail reads "material "…" uses a second UV set";
 - the Android AR file failed its final check.
 
+Material effects such as sheen, clearcoat or transmission no longer block Android AR: see
+[Android AR uses simplified materials](#android-ar-unsupported-extensions).
+
 **How to fix it.**
 
-- Extensions: follow [Android AR: unsupported material extensions](#android-ar-unsupported-extensions).
+- Extensions: export without them (in most exporters, turn off instancing, and use metallic-roughness PBR materials).
 - Second UV map: make every texture use the first UV map. In Blender, in **Object Data Properties › UV Maps**, keep
   one UV map (or make sure every Image Texture node uses the first one), then export again.
 - Final check failed: upload again; if it repeats, contact support with the model name.
 
-### Android AR: unsupported material extensions {#android-ar-unsupported-extensions}
+### Android AR uses simplified materials {#android-ar-unsupported-extensions}
 
-This is the most common cause of [Android AR is not available](#scene-viewer-unavailable).
+<span class="kind kind-warning">Warning</span> <span class="code">ANDROID_AR_UNSUPPORTED_EXTENSIONS</span>
 
-**What it means.** glTF has optional **material extensions** for advanced looks. The website viewer and iPhone & iPad
-AR still work with such a model. Android's AR viewer (Google Scene Viewer) does not support them, so the app does not
-create an Android AR file for it. The technical detail lists the extensions found, for example
-`unsupported extensions: KHR_materials_clearcoat, KHR_materials_sheen`.
+**What it means.** The model uses material effects that Android's AR viewer (Google Scene Viewer) cannot show, such as
+sheen (fabric), clearcoat (a glossy top layer) or transmission (glass). The app still creates the Android AR file:
+there the model shows its base colours, metalness and roughness, without those effects. The website viewer and
+iPhone & iPad AR keep the full look. The model's **AR** tab names the effects for the material option you select.
 
-Android AR in Product 3D & AR accepts only these extensions: `KHR_materials_unlit`, `KHR_texture_transform`,
-`KHR_materials_variants` (material options are handled for you), and compression extensions
-(`KHR_draco_mesh_compression`, `EXT_meshopt_compression`, `KHR_mesh_quantization`, `EXT_texture_webp`). Anything else
-blocks Android AR, including:
+Effects that are simplified for Android AR:
 
-| Extension | What it does | Blender Principled BSDF input that writes it |
+| Effect | glTF extension | Blender Principled BSDF input that writes it |
 |---|---|---|
-| `KHR_materials_sheen` | fabric sheen | **Sheen** weight above 0 |
-| `KHR_materials_clearcoat` | clear varnish layer | **Coat** (Clearcoat) weight above 0 |
-| `KHR_materials_transmission` | glass-like see-through | **Transmission** weight above 0 |
-| `KHR_materials_volume` | thickness of see-through material | used with transmission |
-| `KHR_materials_iridescence` | rainbow-like film | **Thin Film** / iridescence settings |
-| `KHR_materials_specular` | specular strength and color | **Specular** settings changed from default |
-| `KHR_materials_ior` | index of refraction | **IOR** changed from the exporter's default |
-| `KHR_materials_emissive_strength` | emission brighter than 1 | **Emission Strength** above 1 |
-| `KHR_materials_anisotropy`, `KHR_materials_dispersion` | brushed metal, dispersion | **Anisotropic**, **Dispersion** |
+| fabric sheen | `KHR_materials_sheen` | **Sheen** weight above 0 |
+| clear varnish layer | `KHR_materials_clearcoat` | **Coat** (Clearcoat) weight above 0 |
+| glass-like see-through | `KHR_materials_transmission` (with `KHR_materials_volume`) | **Transmission** weight above 0 |
+| rainbow-like film | `KHR_materials_iridescence` | **Thin Film** / iridescence settings |
+| specular strength and color | `KHR_materials_specular` | **Specular** settings changed from default |
+| index of refraction | `KHR_materials_ior` | **IOR** changed from the exporter's default |
+| emission brighter than 1 | `KHR_materials_emissive_strength` | **Emission Strength** above 1 |
+| brushed metal, dispersion | `KHR_materials_anisotropy`, `KHR_materials_dispersion` | **Anisotropic**, **Dispersion** |
 
 (Input names vary slightly between Blender versions.)
 
-**Android AR doesn't get a simplified version.** The app does not remove these extensions or replace the materials
-for Android. To get Android AR, upload a file without them.
-
-**How to export a version without them.**
+**Nothing is required.** For the closest match in Android AR, bake the look of these effects into the basic inputs
+before you export.
 
 *In Blender* (also works for a GLB you got from someone else: **File › Import › glTF 2.0**):
 
-1. Select each object, open the **Material Properties**, and in every **Principled BSDF**:
-   - set **Sheen › Weight** to 0;
-   - set **Coat › Weight** to 0;
-   - set **Transmission › Weight** to 0 (for glass, use a low **Alpha** instead, with the material's **Blend Mode** /
-     render method set to blended or dithered);
-   - set **Thin Film** thickness to 0 if your version has it;
-   - set **Emission Strength** to 1 or less (use a brighter **Emission Color** instead);
-   - reset **Specular** and **IOR** to their defaults (right-click the field › **Reset to Default Value**).
-2. Get the look back with the basic inputs only: **Base Color** (or its texture), **Roughness** and **Metallic**,
-   plus **Normal**. For example, velvet or fabric: darker base color, roughness 0.8–1.0; varnished wood: roughness
-   0.2–0.3; brushed or polished metal: metallic 1 with roughness 0.2–0.5.
+1. In every **Principled BSDF**, get the look with **Base Color** (or its texture), **Roughness**, **Metallic** and
+   **Normal**. For example, velvet or fabric: darker base color, roughness 0.8–1.0; varnished wood: roughness 0.2–0.3;
+   brushed or polished metal: metallic 1 with roughness 0.2–0.5; glass: a low **Alpha** with the material's render
+   method set to blended or dithered.
+2. If you want the same simple look everywhere, set **Sheen**, **Coat** and **Transmission** weights to 0 and reset
+   **Specular** and **IOR** (right-click › **Reset to Default Value**).
 3. **File › Export › glTF 2.0**, format **glTF Binary (.glb)**, and upload it with **Versions › Replace the model file**.
-4. On the model's **AR** tab, **Android AR** should now say **Yes**.
 
-*3ds Max, Maya, SketchUp or other tools:* use standard PBR materials (base color, metallic, roughness, normal) without
-sheen, coat/clearcoat, transmission/refraction, thin film or extra specular settings, and export glTF/GLB again. If
-your exporter has options for "KHR" material extensions, turn them off.
-
-*Online converters:* some converters add extensions such as `KHR_materials_specular` or `KHR_materials_ior` by
-themselves. Import the GLB into Blender and follow the steps above, or try another converter.
+*3ds Max, Maya, SketchUp or other tools:* standard PBR materials (base color, metallic, roughness, normal) look the
+same in Android AR as on the website.
 
 <div class="note" markdown="1">
-You can keep two files: the rich one only matters for the website viewer. If Android AR matters more to you than
-sheen or clearcoat, upload the simpler file: it's used for the website, Android and iPhone & iPad alike.
+A model processed before this change may still say Android AR is not available. Upload the file again
+(**Versions › Replace the model file**) to get the simplified Android AR file.
 </div>
 
 ### AR file is too large {#ar-over-budget}

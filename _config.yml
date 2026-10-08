@@ -1,0 +1,29 @@
+title: Product 3D & AR Help
+description: >-
+  How to set up and use Product 3D & AR for BigCommerce: upload 3D models, add them to products and variants,
+  show them on your storefront and let shoppers view them in their space with AR.
+url: "https://product3dar.papathemes.com"
+baseurl: ""
+lang: en
+permalink: pretty
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+  hard_wrap: false
+  syntax_highlighter: rouge
+  toc_levels: 2..2
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .jekyll-cache

@@ -373,7 +373,9 @@ website viewer and iPhone & iPad AR are not affected. On Android, shoppers still
 
 - the model uses an **extension Android AR can't show that isn't a material effect** (for example GPU instancing,
   or spec-gloss materials): the detail reads "unsupported extensions: …";
-- a material uses a **second UV map**: the detail reads "material "…" uses a second UV set";
+- a material uses a **second UV map** for a texture other than its ambient occlusion: the detail reads "material
+  "…" uses a second UV set" (an ambient occlusion map on the second UV map is simply left out, see
+  [Android AR uses simplified materials](#android-ar-unsupported-extensions));
 - the Android AR file failed its final check.
 
 Material effects such as sheen, clearcoat or transmission no longer block Android AR: see
@@ -409,6 +411,9 @@ Effects that are simplified for Android AR:
 | brushed metal, dispersion | `KHR_materials_anisotropy`, `KHR_materials_dispersion` | **Anisotropic**, **Dispersion** |
 
 (Input names vary slightly between Blender versions.)
+
+The same notice also covers **baked shadows (ambient occlusion)** that use a second UV map: Android AR reads one UV
+map only, so the occlusion map is left out of the Android file and the rest of the material is kept.
 
 **Nothing is required.** For the closest match in Android AR, bake the look of these effects into the basic inputs
 before you export.

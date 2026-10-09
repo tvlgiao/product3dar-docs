@@ -46,7 +46,7 @@ Overview starts showing your 3D views and anything that needs attention.
 ## Step 1: Show 3D on your storefront {#step-1}
 
 Step 1 lists your storefronts (BigCommerce channels). Next to a storefront, click **Show 3D**, then confirm
-**Show 3D** in the dialog (it lists what changes and how many products will show 3D).
+**Show 3D** in the dialog (it lists what changes and how many products in your store have 3D).
 
 - The app adds its storefront script for you and picks the layout that fits your theme. You don't edit your theme.
 - 3D appears **in the image gallery** by default: shoppers open it from an extra thumbnail next to your photos.

@@ -33,7 +33,7 @@ when it's on), **Settings**, and **Test on storefront** (only when 3D is on).
 ## Turn on 3D {#turn-on}
 
 On a storefront that is **Off**, click **Show 3D on this storefront**. A dialog says what changes: the app adds its
-script to your theme, where 3D appears (the image gallery by default) and how many products will show 3D. Click
+script to your theme, where 3D appears (the image gallery by default) and how many products in your store have 3D. Click
 **Show 3D** to confirm. The app uses the recommended settings, and you'll see "3D is on for {storefront}. It shows
 within a few minutes."
 

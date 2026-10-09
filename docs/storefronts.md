@@ -18,20 +18,32 @@ lead: Each BigCommerce storefront (channel) has its own 3D settings. Changes rea
 | Status | Meaning |
 |---|---|
 | **3D on** | Products you publish with 3D show it on this storefront. |
-| **Off** | 3D is not shown on this storefront (it was never turned on, or you turned it off). |
+| **Off** | 3D is not shown on this storefront: it was never turned on, you turned it off, or the app's script was removed in BigCommerce (the card then says so). |
 | **Not installed** | 3D is on, but the app couldn't find its snippet on this storefront yet ([see below](#manual-snippet)). |
 | **Coming soon** | A headless storefront ([Catalyst](#catalyst)). |
 
 Under the name you see the platform ("Stencil · {theme} theme"). For a storefront with 3D on, the card also shows
-**Shows 3D** (where it appears), **Fits your theme** (for example **Automatically**), **Script** (**Added for you** or
-**Added by hand**) and **Storefront** (**Up to date**, or **Updating…** while your latest change is on its way).
-Its buttons are **Test on storefront** and **Settings**.
+**Shows 3D** (where it appears), **Fits your theme** (for example **Automatically**), **Script** (**Added for you**,
+**Adding…**, **Couldn't add** or **Added by hand**) and **Storefront** (**Up to date**, or **Updating…** while your
+latest change is on its way).
+
+Every card has the same buttons in the same order: **Show 3D on this storefront** (a button when 3D is off, a switch
+when it's on), **Settings**, and **Test on storefront** (only when 3D is on).
 
 ## Turn on 3D {#turn-on}
 
-On a storefront that is **Off**, click **Turn on 3D**. The app uses the recommended settings: 3D in the image gallery,
-the layout picked for your theme, and its storefront script added for you. You'll see "Saved. {storefront} updates
+On a storefront that is **Off**, click **Show 3D on this storefront**. A dialog says what changes: the app adds its
+script to your theme, where 3D appears (the image gallery by default) and how many products in your store have 3D. Click
+**Show 3D** to confirm. The app uses the recommended settings, and you'll see "3D is on for {storefront}. It shows
 within a few minutes."
+
+To turn 3D off, click the **Show 3D on this storefront** switch on the card and confirm **Hide 3D**. Shoppers see your
+normal product images; your models and settings stay. The app removes its script from that storefront, and adds it
+again when you turn 3D back on.
+
+If the app's script is removed in BigCommerce (in **Storefront › Script Manager**, or by another app), the app treats
+that storefront as **Off** and doesn't put the script back by itself. The card says "Off: the script was removed in
+BigCommerce" and **Needs your attention** on the Overview lists it; click **Show 3D on this storefront** to add it again.
 
 3D only appears on products you have [published with 3D](/docs/products-and-variants/#publish). Product pages
 without 3D are left as they are.
@@ -42,8 +54,8 @@ Click **Settings** on a storefront card to open its settings panel. Click **Save
 
 ### Show 3D on this storefront {#turn-off}
 
-Switch it off to hide 3D everywhere on that storefront. Product settings are kept, so switching it back on restores
-everything. After saving, the message "3D is off on {storefront}." offers **Undo**.
+Switch it off to hide 3D everywhere on that storefront and remove the app's script. Product settings are kept, so
+switching it back on restores everything. After saving, the message "3D is off on {storefront}." offers **Undo**.
 
 ### Where 3D appears {#where-3d-appears}
 
@@ -79,8 +91,10 @@ On a computer, the AR button that shows the QR code reads **View in your space**
 
 ### Installation {#installation}
 
-- **The script was added for you.** For up to 10 storefronts, the app adds its storefront script through BigCommerce
-  itself. Nothing to do. The **Check it** link opens your storefront with the [installation check](#installation-check).
+- **Our script is on this storefront.** For up to 10 storefronts, the app adds its storefront script through
+  BigCommerce itself. Nothing to do. The **Check it** link opens your storefront with the
+  [installation check](#installation-check). While a change is on its way you see **Adding the script… (a few
+  minutes)** or **Removing the script…**; if BigCommerce refused it, an error with **Try again**.
 - **Add the snippet by hand** (from the 11th storefront on), see [below](#manual-snippet).
 
 ## Add the snippet by hand {#manual-snippet}
@@ -94,7 +108,8 @@ snippet instead:
 3. Back in the app, click **Check installation**. It shows "Found · {time}" when the snippet is on the storefront, or
    "Not found yet · checked {time}". Until it's found, the card shows **Not installed**.
 
-If you uninstall the app later, remove this snippet from Script Manager.
+If you turn 3D off on that storefront or uninstall the app, remove this snippet from Script Manager. Until then it
+loads but shows nothing.
 
 ## Custom selectors {#custom-selectors}
 
@@ -104,7 +119,21 @@ the pop-up button.
 1. In **Settings**, open **Advanced: custom selectors** (or choose **Custom selectors (advanced)** under **How 3D fits
    your theme**).
 2. Enter the **Main image selector** and the **Thumbnail list selector**: CSS selectors for your theme's main product
-   image container and its thumbnail list. Each must match exactly one element on the product page.
+   image container and its thumbnail list. Each must match exactly one element on the product page. On Cornerstone,
+   for example, they are:
+
+   | Field | What it is | Cornerstone example |
+   |---|---|---|
+   | **Main image selector** | The box around the big product image | `.productView-image` |
+   | **Thumbnail list selector** | The list of small images under or beside it | `.productView-thumbnails` |
+
+   **How to find them:** on a product page, right-click the main image and choose **Inspect**. In the code panel,
+   find the element that wraps the whole image (not the `<img>` itself) and copy its class, starting with a dot. Do
+   the same for the row of thumbnails. To check that a selector matches exactly one element, type
+   `document.querySelectorAll('.productView-image').length` in the **Console** tab: it should say `1`.
+
+   The app tells you right away if a selector isn't written correctly (for example a missing `]`). Whether it finds
+   your gallery is checked on the storefront in step 4.
 3. Click **Save**.
 4. Open a product page with 3D and add `?p3d-debug=1` to its address (see [Installation check](#installation-check)).
    With custom selectors, the overlay shows a checklist. Check on the page that:

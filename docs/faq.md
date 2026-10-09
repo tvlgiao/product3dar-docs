@@ -14,7 +14,7 @@ description: Short answers to common questions about Product 3D & AR.
 
 ### Do I need to edit my theme? {#theme-edits}
 
-No, not on most Stencil themes. **Turn on 3D** adds the app's script for you and picks the layout for your theme. From
+No, not on most Stencil themes. **Show 3D on this storefront** adds the app's script for you and picks the layout for your theme. From
 the 11th storefront on, you paste one snippet in Script Manager ([how](/docs/storefronts/#manual-snippet)).
 
 ### Which themes are supported? {#themes}

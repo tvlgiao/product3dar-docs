@@ -99,7 +99,9 @@ Notes:
 
 - Your files are used as they are, for the model's default material. Material options get the generated file while
   **Create the iPhone & iPad file for me…** is checked.
-- Saving a new size or rotation for the model removes your own USDZ files; add them again afterwards.
+- Saving a new size or rotation for the model removes your own USDZ files. The app doesn't resize or turn them, so
+  the old file would bring back the old size: export it again at the new size and orientation in the tool you made it
+  with, then add it, or leave **Create the iPhone & iPad file for me…** checked and use the generated file.
 - A file anchored to the wrong surface is refused: see
   [iOS AR file does not match its slot](/docs/processing-errors/#usdz-override-mismatch).
 

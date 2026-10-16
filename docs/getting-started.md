@@ -67,6 +67,10 @@ Single files can be up to 100 MB, zip files up to 200 MB. See [Preparing 3D file
 No 3D file yet? The same page explains where to get one.
 </div>
 
+**No file at hand?** Click **Try a sample model** instead, pick one of the free (CC0) sample models and click **Add to
+my models**. It processes like an upload and uses one of your plan's model slots, but not your processing allowance.
+Delete it later to free the slot.
+
 While the file uploads you can close the window: the upload keeps going while you use other pages, and processing
 starts when it arrives. Processing usually takes under 2 minutes. The model page shows each stage: **File received**,
 **File checked**, **Optimizing for the website**, **Creating AR files for phones**, **Ready to use**.

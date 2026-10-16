@@ -72,7 +72,9 @@ panel shows a small preview of the choice.
 | **Below the image gallery** | Under your product photos. |
 
 With **Above Add to Cart**, **Below Add to Cart** and **Below the image gallery**, the page can move slightly on some
-themes when the button appears. The positions on the main image don't move the page. If your theme has no place for
+themes when the button appears. The positions on the main image don't move the page. With any choice other than
+**Automatic**, the button always shows its label (for example **View in 3D**) and takes the place of the 3D thumbnail
+next to your photos. If your theme has no place for
 the choice (for example no main image the app can find), the button goes below the Add to Cart button instead. The
 [installation check](#installation-check) shows the position actually used.
 

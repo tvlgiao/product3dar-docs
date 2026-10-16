@@ -22,10 +22,12 @@ Before you upload, check that:
 3. **It's light enough for phones:** about 3 MB for the website model and 100,000 triangles or fewer
    ([budgets](#budgets)).
 4. **Textures are 2,048 px or less** on each side ([textures](#textures)).
-5. **It's the right size in metres**, standing upright ([scale](#scale)).
+5. **It's the right size and standing upright.** GLB and glTF are read in metres; OBJ and STL in millimetres; FBX
+   in the units saved in the file ([scale](#scale)).
 6. **Every texture uses the same UV map** ([one UV map](#one-uv-map)).
-7. **It opens in a free online viewer** such as glTF Viewer ([free tools](#software)). If it looks right there, it
-   almost always looks right in the app.
+7. **A GLB or glTF opens in a free online viewer** such as glTF Viewer ([free tools](#software)). If it looks right
+   there, it almost always looks right in the app. These viewers read glTF only: check an OBJ, FBX or STL in the 3D
+   software you made it with, or on the model page after you upload.
 
 ## Supported formats {#formats}
 
@@ -151,7 +153,10 @@ A UV map tells the model where each part of a texture goes. Android AR supports 
 metal/roughness or glow texture uses a second UV map, the model has no Android AR
 ([Android AR is not available](/docs/processing-errors/#scene-viewer-unavailable)); an ambient occlusion texture on a
 second UV map is just left out of the Android AR file. The website viewer and iPhone & iPad AR still work. In Blender,
-check **Object Data properties › UV Maps**: keep one per object and delete the extra ones before you export.
+check **Object Data properties › UV Maps**. If a texture uses a second UV map, deleting that map doesn't move the
+texture onto the first one: the texture would then sit wrong everywhere. Bake the texture onto the first UV map
+instead (Cycles **Bake**, with the first UV map active), connect the baked image in place of the old one, and only
+then delete the extra UV map and export.
 
 ## Polygon and size budgets {#budgets}
 
@@ -194,7 +199,7 @@ sharper later. The model's **AR** tab notes this under **Details**.
 | Device | How AR opens | What the model needs |
 |---|---|---|
 | iPhone, iPad | AR Quick Look, from **View in AR** | an iPhone & iPad AR file (created for you, or your own USDZ) for the placement you chose |
-| Android phone or tablet | Google's AR viewer (Scene Viewer), or AR in Chrome where the phone supports it | an Android AR file: no unsupported material extensions, one UV map, 15 MB or less |
+| Android phone or tablet | Google's AR viewer (Scene Viewer), or AR in Chrome where the phone supports it | an Android AR file: one UV map, 15 MB or less, and no glTF extension that Android AR can't read. Material effects such as sheen, clearcoat or transmission don't block it: they are simplified ([materials](#materials)) |
 | Computer | **View in your space** shows a QR code that opens the page on a phone | — |
 
 The model's **AR** tab, under **Where shoppers can see it**, shows for each material option whether **Website 3D
@@ -282,7 +287,9 @@ files have no colors or textures, so the model shows in a plain material.
 ### gltfpack
 
 [gltfpack](https://meshoptimizer.org/gltf/) packs a model into one compact GLB.
-`gltfpack -i in.gltf -o out.glb -si 0.5` keeps about half of the triangles and puts the textures inside the GLB.
+`gltfpack -i in.gltf -o out.glb -si 0.5` aims for about half of the triangles and puts the textures inside the GLB.
+It can keep more than half where the shape doesn't allow it, so check the count afterwards (`gltf-transform
+inspect out.glb`) before you upload.
 Don't use its KTX2 texture option (`-tc`): the app accepts PNG, JPEG and WebP textures only.
 
 ### Apple Reality Converter and Reality Composer Pro

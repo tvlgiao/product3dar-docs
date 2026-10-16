@@ -32,8 +32,8 @@ The app's **Overview** page shows the same four steps in its setup guide ("Set u
 5 minutes.
 
 <ol class="steps">
-  <li><strong>Turn on 3D for your storefront.</strong> In the setup guide (or on <span class="ui">Storefronts</span>),
-  click <span class="ui">Turn on 3D</span> next to your storefront. The app adds its script and picks the layout that
+  <li><strong>Show 3D on your storefront.</strong> In the setup guide (or on <span class="ui">Storefronts</span>),
+  click <span class="ui">Show 3D</span> next to your storefront and confirm. The app adds its script and picks the layout that
   fits your theme. <a href="/docs/storefronts/">More about storefronts</a></li>
   <li><strong>Upload your first 3D model.</strong> Click <span class="ui">Upload model</span> and choose your file. GLB
   works best; glTF and OBJ (zipped with their textures), FBX and STL also work. <a href="/docs/preparing-3d-files/">How to prepare a file</a></li>

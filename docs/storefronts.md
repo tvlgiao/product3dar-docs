@@ -1,6 +1,6 @@
 ---
 title: Storefronts
-description: Turn 3D on per storefront, choose where 3D appears, how it fits your theme and the button labels, check the installation, and fix 3D that doesn't show.
+description: Turn 3D on per storefront, choose where 3D appears and where its button goes, how it fits your theme and the button labels, check the installation, and fix 3D that doesn't show.
 lead: Each BigCommerce storefront (channel) has its own 3D settings. Changes reach your storefront within a few minutes.
 ---
 
@@ -55,6 +55,26 @@ everything. After saving, the message "3D is off on {storefront}." offers **Undo
 
 In every mode, the product page first loads with your normal images. The 3D model only loads when a shopper opens
 it, so pages stay fast and only real 3D views [count toward your plan](/docs/plan-and-usage/#what-counts).
+
+### Button position {#button-position}
+
+On Stencil storefronts, **Button position** sets where the **View in 3D** button goes on the product page. The
+panel shows a small preview of the choice.
+
+| Choice | Where the button goes |
+|---|---|
+| **Automatic** (default) | Where your theme fits best. |
+| **Above Add to Cart** | Just above the Add to Cart button. |
+| **Below Add to Cart** | Just below the Add to Cart button. |
+| **On the main image (centre)** | Over the main photo. It covers the middle of the photo. |
+| **On the main image (bottom)** | Over the bottom of the main photo. |
+| **On the main image (bottom-right corner)** | In the bottom-right corner of the main photo. |
+| **Below the image gallery** | Under your product photos. |
+
+With **Above Add to Cart**, **Below Add to Cart** and **Below the image gallery**, the page can move slightly on some
+themes when the button appears. The positions on the main image don't move the page. If your theme has no place for
+the choice (for example no main image the app can find), the button goes below the Add to Cart button instead. The
+[installation check](#installation-check) shows the position actually used.
 
 ### How 3D fits your theme {#theme-fit}
 
@@ -126,6 +146,8 @@ overlay appears in the bottom-right corner with what the app detected:
 
 - the first line, **Product 3D & AR**, shows `mounted` when 3D is set up on the page, or `no-op` with a reason;
 - **adapter**: how the app fitted your theme (`cornerstone`, `papathemes`, `generic-selectors` or `modal`);
+- **button**: the [button position](#button-position) you chose and the one used, for example
+  `requested image-center → used below-cart`;
 - **selection** and **appearance**: the options chosen and the model shown;
 - **AR**: which AR this device gets (`quick-look`, `scene-viewer`, `webxr`, `qr` or `-`).
 

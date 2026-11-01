@@ -28,6 +28,8 @@ These pages answer most questions:
 - [Android AR: unsupported material extensions](/docs/processing-errors/#android-ar-unsupported-extensions).
 - [FAQ](/docs/faq/).
 
-## Joining the beta {#beta}
+## Installing the app {#beta}
 
-Product 3D & AR is in private beta. To join, email us your store URL.
+Install Product 3D & AR from the BigCommerce App Marketplace. See [Getting started](/docs/getting-started/#install).
+For questions about plans or billing, include your store name and, for a payment, the date and amount, or the invoice
+number (P3D-…) from **Invoices & receipts**.

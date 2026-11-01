@@ -27,9 +27,9 @@ The button is hidden on a device that can't show AR for this model (and on a com
 product). The **AR button** label can be changed per storefront ([Button labels](/docs/storefronts/#button-labels)).
 
 <div class="note" markdown="1">
-**Beta:** AR on real iPhone and Android devices is still being confirmed during the beta, and the AR files use a
-cautious format until then. AR availability depends on the shopper's device: Android AR needs a phone that supports
-Google's AR services.
+**Device limits:** AR depends on the shopper's device. iPhone and iPad use AR Quick Look; Android AR needs a phone
+that supports Google's AR services. The AR files use a cautious format while we finish testing on more devices, so
+they may get smaller or sharper later.
 </div>
 
 ## iPhone and iPad (Quick Look, USDZ) {#iphone-ipad}
@@ -63,7 +63,7 @@ On a computer, **View in your space** shows a QR code inside the viewer: "Point 
 {product} in your room. Works on iPhone, iPad and Android." The code opens the same product page on the phone, with
 the options the shopper chose, ready for AR.
 
-In the app, the setup guide's **Show QR code** and the **View in your space (QR code)** button under the preview on a
+In the app, the quick start's **Show QR code** and the **View in your space (QR code)** button under the preview on a
 model page do the same for you, so you can try AR on your own phone. On the model page it works once the model is live
 on a product ("Add the model to a product first").
 

@@ -190,8 +190,8 @@ Processing usually takes under 2 minutes. You can leave the page while it runs. 
 [processing allowance](/docs/plan-and-usage/#processing).
 
 <div class="note" markdown="1">
-**Beta:** the AR files use a cautious format while device testing finishes. They work today; they may get smaller or
-sharper later. The model's **AR** tab notes this under **Details**.
+**Note:** the AR files use a cautious format while we finish testing on more devices. They work today; they may get
+smaller or sharper later. The model's **AR** tab notes this under **Details**.
 </div>
 
 ## What AR needs on each device {#ar-requirements}

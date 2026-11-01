@@ -80,14 +80,25 @@ panel shows a small preview of the choice.
 | **Below Add to Cart** | Just below the Add to Cart button. |
 | **On the main image (centre)** | Over the main photo. It covers the middle of the photo. |
 | **On the main image (bottom)** | Over the bottom of the main photo. |
+| **On the main image (top-left corner)** | In the top-left corner of the main photo. |
+| **On the main image (top-right corner)** | In the top-right corner of the main photo. |
+| **On the main image (bottom-left corner)** | In the bottom-left corner of the main photo. |
 | **On the main image (bottom-right corner)** | In the bottom-right corner of the main photo. |
 | **Below the image gallery** | Under your product photos. |
 
 With **Above Add to Cart**, **Below Add to Cart** and **Below the image gallery**, the page can move slightly on some
 themes when the button appears. The positions on the main image don't move the page. With any choice other than
 **Automatic**, the button always shows its label (for example **View in 3D**) and takes the place of the 3D thumbnail
-next to your photos. If your theme has no place for
-the choice (for example no main image the app can find), the button goes below the Add to Cart button instead. The
+next to your photos.
+
+Some products have no place for the choice, and the button moves:
+
+- With **Above Add to Cart** or **Below Add to Cart**, products without an Add to Cart button (for example special
+  order products) show it after the cart form.
+- With a position on the main image or **Below the image gallery**, products with no image show it below Add to Cart.
+
+If your theme has no place for the choice (for example no main image the app can find), the button goes below the
+Add to Cart button instead. The
 [installation check](#installation-check) shows the position actually used.
 
 ### How 3D fits your theme {#theme-fit}
@@ -182,7 +193,7 @@ overlay appears in the bottom-right corner with what the app detected:
 - **selection** and **appearance**: the options chosen and the model shown;
 - **AR**: which AR this device gets (`quick-look`, `scene-viewer`, `webxr`, `qr` or `-`).
 
-**Open my storefront** in the setup guide and **Check it** in Settings open your storefront with this check already
+**Open my storefront** in the quick start and **Check it** in Settings open your storefront with this check already
 added. The overlay is only shown to whoever opens the page with `?p3d-debug=1`; shoppers never see it.
 
 Common reasons after `no-op`:
@@ -199,7 +210,8 @@ Common reasons after `no-op`:
 ## Catalyst (headless) {#catalyst}
 
 Support for Catalyst (headless) storefronts is coming soon: a React package for Catalyst is on the way. Headless
-storefronts appear in the list as **Coming soon**, and we'll email you when the package is ready.
+storefronts appear in the list as **Coming soon**, and we'll email you when the package is ready. Catalyst
+storefronts will be part of the Growth and Pro plans ([Plans](/docs/plan-and-usage/#plans)).
 
 ## 3D doesn't show on my storefront {#troubleshooting}
 

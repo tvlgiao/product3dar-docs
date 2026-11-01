@@ -8,10 +8,8 @@ Product 3D & AR is a BigCommerce app by PapaThemes. You upload a 3D file of a pr
 your storefront: a 3D view that shoppers can turn and zoom next to your product photos, and AR files so shoppers can
 see the product in their own room on a phone or tablet.
 
-<div class="note" markdown="1">
-**Private beta.** The app is in a free private beta. Some parts are still being finished, and this guide says so where
-it matters. See [Plan and usage](/docs/plan-and-usage/) for the beta plan.
-</div>
+Install it from the BigCommerce App Marketplace. Every store starts on the Free plan; paid plans add more models,
+3D views and processing ([Plan and usage](/docs/plan-and-usage/#plans)).
 
 ## What the app does {#what-it-does}
 
@@ -28,16 +26,16 @@ it matters. See [Plan and usage](/docs/plan-and-usage/) for the beta plan.
 
 ## Quick start {#quick-start}
 
-The app's **Overview** page shows the same four steps in its setup guide ("Set up 3D on your store"). It takes about
+The app's **Overview** page shows the same four steps in its quick start ("Set up 3D on your store"). It takes about
 5 minutes.
 
 <ol class="steps">
-  <li><strong>Show 3D on your storefront.</strong> In the setup guide (or on <span class="ui">Storefronts</span>),
+  <li><strong>Show 3D on your storefront.</strong> In the quick start (or on <span class="ui">Storefronts</span>),
   click <span class="ui">Show 3D</span> next to your storefront and confirm. The app adds its script and picks the layout that
   fits your theme. <a href="/docs/storefronts/">More about storefronts</a></li>
   <li><strong>Upload your first 3D model.</strong> Click <span class="ui">Upload model</span> and choose your file. GLB
   works best; glTF and OBJ (zipped with their textures), FBX and STL also work. <a href="/docs/preparing-3d-files/">How to prepare a file</a></li>
-  <li><strong>Add the model to a product.</strong> Search for a product, open it, choose the model and publish.
+  <li><strong>Add the model to a product.</strong> Search for a product and click <span class="ui">Add 3D</span>.
   <a href="/docs/products-and-variants/">Products and variants</a></li>
   <li><strong>See it on your storefront.</strong> Click <span class="ui">Open my storefront</span> to open the product
   page, or <span class="ui">Show QR code</span> to try AR on your phone. <a href="/docs/ar/">About AR</a></li>
@@ -54,7 +52,7 @@ The full walk-through is in [Getting started](/docs/getting-started/).
   <a href="/docs/products-and-variants/"><b>Products and variants</b><span>Default model, variant rules, publish, restore.</span></a>
   <a href="/docs/storefronts/"><b>Storefronts</b><span>Where 3D appears, theme fit, buttons, troubleshooting.</span></a>
   <a href="/docs/ar/"><b>AR (view in your space)</b><span>iPhone, iPad, Android, the desktop QR code.</span></a>
-  <a href="/docs/plan-and-usage/"><b>Plan and usage</b><span>Limits, 3D views, allowances, notices.</span></a>
+  <a href="/docs/plan-and-usage/"><b>Plan and usage</b><span>Plans and prices, PayPal billing, invoices, limits.</span></a>
   <a href="/docs/faq/"><b>FAQ</b><span>Short answers to common questions.</span></a>
 </div>
 
@@ -65,11 +63,13 @@ and Help:
 
 | Page | What you do there |
 |---|---|
-| **Overview** | The setup guide; later, how 3D is doing: storefronts with 3D, models ready, products with live 3D, this month's 3D views and anything that needs your attention. |
+| **Overview** | The quick start; later, how 3D is doing: storefronts with 3D, models ready, products with live 3D, this month's 3D views and anything that needs your attention. |
 | **Models** | Upload, rename, replace and delete 3D models; see each model's status, its preview, AR files and versions. |
 | **Products** | Give products a 3D model, set variant rules, publish; set one model for many products at once. |
 | **Storefronts** | Turn 3D on or off per storefront and choose how it appears. |
-| **Plan & usage** | Your plan, 3D views, data transfer, processing allowances, notices and email settings. |
+| **Plan & usage** | Your plan, changing or cancelling it, 3D views, data transfer, processing allowances, invoices and receipts, billing details, notices and email settings. |
 | **Help** | Links to this guide, support by email, and the setup guide if you hid it. |
+
+The store owner also sees **Upgrade** next to **Help** (except on Pro billed yearly); it opens **Change plan**.
 
 You can also open a product straight from BigCommerce: **Products › ⋯ › 3D & AR**.

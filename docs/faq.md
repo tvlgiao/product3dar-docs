@@ -28,9 +28,10 @@ image gallery. On other themes the app uses a **View in 3D** button that opens a
 The 3D model only loads when a shopper opens 3D. Until then the page shows your normal images. Keep models light
 (3 MB or less is the target) so they open quickly on phones.
 
-### I hid the setup guide. How do I get it back? {#setup-guide}
+### I hid the quick start. How do I get it back? {#setup-guide}
 
-Click **Help**, then **Show the setup guide**. See [The setup guide](/docs/getting-started/#hide-setup-guide).
+Click **Quick start** at the top of the Overview, or click **Help**, then **Show the setup guide**. See
+[Hide or bring back the quick start](/docs/getting-started/#hide-setup-guide).
 
 ## Models {#models}
 
@@ -118,7 +119,24 @@ Yes, for iPhone and iPad ([how](/docs/ar/#own-usdz)).
 
 ### How much does it cost? {#cost}
 
-The private beta is free. We'll email beta stores before anything changes. See [Plan and usage](/docs/plan-and-usage/).
+The Free plan costs nothing and includes 3 models and 1,000 3D views a month. Paid plans are Starter ($29 a month),
+Growth ($79 a month) and Pro ($199 a month), or 15% less billed yearly. See [Plans](/docs/plan-and-usage/#plans).
+
+### How do I pay? {#pay}
+
+Through PayPal, at the list price: on **Plan & usage**, click **Change plan**, choose a plan, tick **I agree to the
+no-refund terms** and click **Continue to PayPal** ([details](/docs/plan-and-usage/#change-plan)). Only the store
+owner can do this.
+
+### Can I cancel or get a refund? {#cancel}
+
+You can cancel any time with **Cancel subscription** on **Plan & usage**. You keep your plan until the end of the
+period you paid for, then move to Free. Payments are not refunded ([details](/docs/plan-and-usage/#cancel)).
+
+### Where are my invoices? {#invoices}
+
+On **Plan & usage**, in **Invoices & receipts**: **View** or **Download** each one, or print it to save a PDF
+([details](/docs/plan-and-usage/#invoices)).
 
 ### Do AR launches count toward my plan? {#ar-count}
 
@@ -137,9 +155,11 @@ They're kept for 30 days, then deleted. Reinstall within 30 days to continue whe
 
 ### The app says my session expired. {#session-expired}
 
-In the BigCommerce control panel, go to **Apps › My Apps** and open Product 3D & AR again. Product changes you
-hadn't saved are kept in that browser tab and come back when you return.
+While the app is open in your browser tab, it keeps you signed in by itself, even if you don't click anything. After
+8 hours, or if your computer was asleep past the session's end, the app shows **Open Product 3D & AR again**. Click
+**Open the app again**, or go to **Apps › My Apps** in the BigCommerce control panel and open it there. Product changes
+you hadn't saved are kept in that browser tab and come back when you return.
 
 ### Can my staff use the app? {#staff}
 
-Yes. Only the store owner can change the plan and the notification emails.
+Yes. Only the store owner can choose or cancel a plan, edit the billing details and change the notification emails.

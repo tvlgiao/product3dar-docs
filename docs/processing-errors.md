@@ -495,7 +495,8 @@ upload the file again after the reset, or change your plan. See [processing allo
 
 Titles: **Daily upload limit reached**, **File too large for your plan**.
 
-**What it means.** Your plan allows a total amount of uploaded data per day (for example 5 GB on the beta plan). The
+**What it means.** Your plan allows a total amount of uploaded data per day: 0.5 GB on Free, 2 GB on Starter, 5 GB on
+Growth and 20 GB on Pro ([plans](/docs/plan-and-usage/#plans)). The
 message shows how much you uploaded today and when it resets. **File too large for your plan** means one file is
 bigger than the whole daily upload allowance.
 

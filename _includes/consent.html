@@ -1,0 +1,50 @@
+<div class="consent" id="consent" role="region" aria-label="Cookie consent" hidden>
+  <p class="consent-text">We use cookies to measure our ads. You can accept or decline. <a href="https://papathemes.com/privacy-policy/">Privacy policy</a></p>
+  <div class="consent-actions">
+    <button type="button" class="btn btn-secondary" data-consent="denied">Decline</button>
+    <button type="button" class="btn btn-primary" data-consent="granted">Accept</button>
+  </div>
+</div>
+<script>
+  (function () {
+    var banner = document.getElementById('consent');
+    var api = window.p3dConsent;
+    if (!banner || !api) return;
+    var opener = null;
+
+    function show(focus) {
+      banner.hidden = false;
+      document.body.style.paddingBottom = banner.offsetHeight + 'px';
+      if (focus) banner.querySelector('button').focus();
+    }
+
+    function hide() {
+      var hadFocus = banner.contains(document.activeElement);
+      banner.hidden = true;
+      document.body.style.paddingBottom = '';
+      if (hadFocus) (opener || document.getElementById('main')).focus();
+      opener = null;
+    }
+
+    banner.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-consent]');
+      if (!btn) return;
+      api.set(btn.getAttribute('data-consent'));
+      hide();
+    });
+
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-cookie-settings]');
+      if (!btn) return;
+      api.reset();
+      opener = btn;
+      show(true);
+    });
+
+    window.addEventListener('resize', function () {
+      if (!banner.hidden) document.body.style.paddingBottom = banner.offsetHeight + 'px';
+    });
+
+    if (!api.choice()) show(false);
+  })();
+</script>

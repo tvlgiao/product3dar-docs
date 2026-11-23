@@ -8,7 +8,7 @@ Product 3D & AR is a BigCommerce app by PapaThemes. You upload a 3D file of a pr
 your storefront: a 3D view that shoppers can turn and zoom next to your product photos, and AR files so shoppers can
 see the product in their own room on a phone or tablet.
 
-Install it from the BigCommerce App Marketplace. Every store starts on the Free plan; paid plans add more models,
+[Install it from the BigCommerce App Marketplace](https://www.bigcommerce.com/apps/product-3d-ar-by-papathemes/?utm_source=docs&utm_medium=docs_home&utm_campaign=p3d). Every store starts on the Free plan; paid plans add more models,
 3D views and processing ([Plan and usage](/docs/plan-and-usage/#plans)).
 
 ## What the app does {#what-it-does}

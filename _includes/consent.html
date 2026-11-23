@@ -36,7 +36,6 @@
     document.addEventListener('click', function (e) {
       var btn = e.target.closest('[data-cookie-settings]');
       if (!btn) return;
-      api.reset();
       opener = btn;
       show(true);
     });
